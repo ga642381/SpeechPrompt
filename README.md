@@ -18,6 +18,16 @@ We further study the technique in challenging sequence generation tasks. Prompt 
 ## Code
 Will be released soon!
 
+## Citation
+```
+@article{chang2022exploration,
+  title={An Exploration of Prompt Tuning on Generative Spoken Language Model for Speech Processing Tasks},
+  author={Chang, Kai-Wei and Tseng, Wei-Cheng and Li, Shang-Wen and Lee, Hung-yi},
+  journal={arXiv preprint arXiv:2203.16773},
+  year={2022}
+}
+```
+
 ## References
 This work is mainly based on:
 1. [Generative Spoken Language Model (GSLM)](https://arxiv.org/abs/2102.01192)
