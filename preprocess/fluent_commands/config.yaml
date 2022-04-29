@@ -1,0 +1,14 @@
+taskrc:
+  merge: True
+  no_overlap: True
+datarc:
+  root_path: /home/raytz/Disk/data/fluent_speech_commands_dataset
+  output_path: /home/raytz/Disk/s3prompt/fluent_commands
+  batch_size: 2
+  num_workers: 2
+fairseqrc:
+  feature_type: hubert
+  root_path: /home/raytz/NTU_Project/s3prompt/fairseq
+  ssl_model_path: /home/raytz/Disk/S3M-Checkpoints/hubert_base_ls960.pt
+  km_model_path: /home/raytz/Disk/S3M-Checkpoints/hubert_base_km_100.bin
+  layer: 6

@@ -1,0 +1,13 @@
+taskrc:
+  merge: True
+datarc:
+  root_path: /home/raytz/Disk/speech_commands
+  output_path: /home/raytz/Disk/SpeechPrompt/speech_commands
+  batch_size: 2
+  num_workers: 2
+fairseqrc:
+  feature_type: hubert
+  root_path: /home/raytz/NTU_Project/SpeechPrompt/fairseq
+  ssl_model_path: /home/raytz/Disk/S3M-Checkpoints/hubert_base_ls960.pt
+  km_model_path: /home/raytz/Disk/S3M-Checkpoints/hubert_base_km_100.bin
+  layer: 6
