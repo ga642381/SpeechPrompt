@@ -29,8 +29,12 @@ For speech classification tasks, it achieves a better parameter efficientcy:
 
 <img src="https://user-images.githubusercontent.com/20485030/165970961-975ecdab-5998-41e7-aeeb-f2e5eb8dc895.png" width=500>
 
-## Code
-Will be released soon!
+## JSALT Workshop
+We will futher explore prompting and adapter on SSL models for speech processing tasks in [JSALT Workshop](https://www.clsp.jhu.edu/workshops/).
+
+This is a project under the research topic: **Leveraging Pre-training Models for Speech Processing**
+
+For more information, please refer to our website: https://jsalt-2022-ssl.github.io/
 
 ## Citation
 ```
