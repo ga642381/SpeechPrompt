@@ -8,7 +8,9 @@ from pathlib import Path
 import torchaudio
 from tqdm import tqdm
 
-from speech_commands.dataset import SpeechCommandsDataset, SpeechCommandsTestingDataset, get_dataloader, split_dataset
+from speech_commands.dataset import (SpeechCommandsDataset,
+                                     SpeechCommandsTestingDataset,
+                                     get_dataloader, split_dataset)
 
 
 class Preprocessor:
@@ -120,10 +122,7 @@ class Preprocessor:
             exist_ok=True,
         )
 
-        python_file = Path(
-            self.fairseqrc["root_path"],
-            "examples/textless_nlp/gslm/speech2unit/clustering/quantize_with_kmeans.py",
-        )
+        python_file = Path("../speech2unit/clustering/quantize_with_kmeans.py")
 
         for split in ["train", "valid", "test"]:
             manifest_path = Path(self.datarc["output_path"], "manifest", f"{split}.manifest")

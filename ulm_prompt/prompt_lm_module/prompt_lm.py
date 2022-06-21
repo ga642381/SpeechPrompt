@@ -18,6 +18,7 @@ from fairseq.modules import SinusoidalPositionalEmbedding
 from fairseq.modules.checkpoint_activations import checkpoint_wrapper
 from fairseq.modules.quant_noise import quant_noise as apply_quant_noise_
 from fairseq.utils import safe_getattr, safe_hasattr
+from fairseq_usr.transformer_decoder import TransformerDecoderPromptBase
 from torch import Tensor
 from torch.nn import Dropout, ModuleList
 
@@ -33,7 +34,7 @@ class TransformerLanguageModelPromptConfig(TransformerLanguageModelConfig):
     fine_tune: bool = field(default=False, metadata={"help": "if finetuning the whole model"})
 
 
-class TransformerDecoderPrompt(TransformerDecoderBase):
+class TransformerDecoderPrompt(TransformerDecoderPromptBase):
     def __init__(
         self,
         args,
