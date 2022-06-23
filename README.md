@@ -6,7 +6,7 @@
 
 * Paper Link: [https://arxiv.org/abs/2203.16773](https://arxiv.org/abs/2203.16773)
 
-* Comment: Submitted to Interspeech 2022
+* Comment: Accepted at Interspeech 2022
 
 ![title](assets/framework.png)
 
@@ -44,6 +44,125 @@ For more information, please refer to our website: https://jsalt-2022-ssl.github
   journal={arXiv preprint arXiv:2203.16773},
   year={2022}
 }
+```
+## Code Usage
+### 1. Environment
+
+Create Conda virtual environment:
+```
+conda env create -f environment.yaml
+conda activate speech_prompt
+```
+
+Install fairseq with the tested version:
+```
+git clone https://github.com/facebookresearch/fairseq.git
+cd faireq/
+git checkout e55e094
+pip install -e ./
+```
+
+
+### 2. Preprocess (Downstream tasks)
+convert downstream tasks' speech and label into units
+
+**In preprocess/ folder:**
+1. modify config file in each downstream tasks folder (e.g. speech_commands/config)
+2. generate manifest file
+3. quantize
+4. postprocessing (add downstream task's label)
+
+```
+DOWNSTREAM=DOWNSTREAM_NAME
+python preprocess/runner.py --downstream $DOWNSTREAM --action generate_manifest
+python preprocess/runner.py --downstream $DOWNSTREAM --action quantized
+python preprocess/runner.py --downstream $DOWNSTREAM --action postprocess
+
+```
+* Note1: We have prepared some example data in:
+    * SpeechPrompt/preprocess/speech_commands/data
+    * SpeechPrompt/preprocess/fluent_commands/data
+
+    You can directly use them to have a quick start.
+
+
+* Note2: There are 3 cloumns for each data point:
+    **file_name** | **speech (units)** | **task labels**
+    
+    * reference: https://github.com/pytorch/fairseq/tree/main/examples/textless_nlp/gslm/speech2unit
+
+### 3. Preprocess (Unit Language model)
+Preprocess data into the format that fits fairseq
+
+**In ulm_prompt/ folder:**
+
+1. Convert data in the previous stage into the format for lanuge modeling. For example,
+71 11 10 63 10 23 10 12 57 63 40 57 40 57 93 4 53 73 74 4 2 57 4 56 57 56 63 4 12 4 40 57 93 \<s\> 11
+
+    ("\<s\>"  is the separation token)
+    
+    ```
+    python make_data.py
+    ```
+    &rarr; generate dataset/data_prompt/
+
+2. verbalizer
+    ```
+    python gen_labelspace.py 
+    ```
+    &rarr; create labelspace.json
+
+    ```
+    python verbalizer.py
+    ```
+
+    &rarr; create verbal.json ; genearte dataset/data_freq/
+
+3. convert the dataset/data_freq/ into binary files:
+    ```
+    python preprocess.py
+    ```
+    &rarr; genearte data-bins/
+
+
+### 4. Training
+1. Download the pre-trained language models from:
+https://github.com/pytorch/fairseq/tree/main/examples/textless_nlp/gslm/ulm
+    and put the pre-trained models in pretrained_models/ folder.
+    
+    * In the paper, we used **HuBERT-100** and **CPC-100**
+
+```
+python train.py
+
+e.g.
+python train.py --date 20220430 --prompt_task IC --unit_model hubert100 --prefix_prompt_length 6
+```
+
+
+* Important Information:
+2022-04-30 21:32:51 | INFO | fairseq_cli.train | num. shared model params: 151,417,856 **(num. trained: 154,624)**
+
+* Checkpoints will be saved into checkpoints/
+[task]\_[unit_model]\_checkpoints\_[model_serial_number (date)]
+
+* Log files will be saved into logs/
+[task]\_[unit_model]\_log\_[model_serial_number (date)]
+
+### 5. Inference (sampling)
+```
+python sample.py
+
+e.g.
+python sample.py --prompt_task IC --unit_model hubert100 --model_date 20220430 --sample_date 20220430
+```
+
+* The output files will be saved into 
+samples / samples\_[sample_date] / samples\_[task]\_[unit_model]\_[model_date].json
+
+### 6. Performance Evaluation
+```
+python cal_acc.py
 ```
 
 ## References
