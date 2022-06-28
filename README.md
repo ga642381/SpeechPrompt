@@ -116,11 +116,12 @@ Preprocess data into the format that fits fairseq
     python verbalizer.py
     ```
 
-    &rarr; create verbal.json ; genearte dataset/data_freq/
+    &rarr; create verbal.json <br/>
+    &rarr; genearte dataset/data_freq/
 
 3. convert the dataset/data_freq/ into binary files:
     ```
-    python preprocess.py
+    python fairseq_preprocess.py
     ```
     &rarr; genearte data-bins/
 
