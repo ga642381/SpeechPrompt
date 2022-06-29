@@ -27,10 +27,10 @@ For speech classification tasks, it achieves a better parameter efficientcy:
 * Keyword Spotting (KS): a single-label classification task
 * Intent Classification (IC): a multi-label classification task
 
-<img src="https://user-images.githubusercontent.com/20485030/165970961-975ecdab-5998-41e7-aeeb-f2e5eb8dc895.png" width=500>
+<img src="https://user-images.githubusercontent.com/20485030/165970961-975ecdab-5998-41e7-aeeb-f2e5eb8dc895.png" width=300>
 
-## JSALT Workshop
-We will futher explore prompting and adapter on SSL models for speech processing tasks in [JSALT Workshop](https://www.clsp.jhu.edu/workshops/).
+## Frederick Jelinek Memorial Summer Workshop
+The authors acknowledge the support of [2022 Eighth Frederick Jelinek Memorial Summer Workshop](https://www.clsp.jhu.edu/2022-eighth-frederick-jelinek-memorial-summer-workshop/).
 
 This is a project under the research topic: **Leveraging Pre-training Models for Speech Processing**
 
