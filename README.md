@@ -6,6 +6,8 @@
 
 * Paper Link: [https://arxiv.org/abs/2203.16773](https://arxiv.org/abs/2203.16773)
 
+* Slides: [Interspeech2022 Oral Presentation](https://drive.google.com/file/d/1QC9sDdnobgDoO_t2oaY0fy6bfNdsK3jl/view?fbclid=IwAR3FntCnPrpmUN0xcjxwBrQFJF83K22nlXAYtGKNfCnpd1Vhy2ULzLCqIZ0)
+
 * Comment: Accepted at Interspeech 2022
 
 ![title](assets/framework.png)
