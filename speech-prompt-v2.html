@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>SpeechPrompt</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="icon" href="images/power.png" />
+</head>
+
+<body class="no-sidebar is-preload">
+	<div id="page-wrapper">
+		<!-- Header -->
+		<section id="header">
+			<!-- Logo -->
+			<h1><a href="overview.html">SpeechPrompt</a></h1>
+
+			<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li><a href="overview.html">Overview</a></li>
+					<li><a href="speech-prompt-v1.html">SpeechPrompt v1</a></li>
+					<li class="current"><a href="speech-prompt-v2.html">SpeechPrompt v2</a></li>
+					<!-- <li><a href="no-sidebar.html">More</a></li> -->
+				</ul>
+			</nav>
+
+			<!-- Banner -->
+			<section id="banner">
+				<header>
+					<h2>SpeechPrompt v2</h2>
+					<p style="font-weight: 500">
+						Prompt Tuning for Speech Classification Tasks
+					</p>
+					<br />
+					<ul class="actions">
+						<li><a href="#" class="button">Paper (coming soon)</a></li>
+						<li><a href="#" class="button">Code (coming soon)</a></li>
+					</ul>
+				</header>
+			</section>
+			<!-- News -->
+
+			<!-- Main -->
+			<section id="main">
+				<div class="container">
+					<!-- Content -->
+					<article class="box post">
+						<section class="paper-section">
+							<div class="paper-title">
+								SpeechPrompt v2: Prompt Tuning for Speech Classification Tasks
+							</div>
+							<br>
+							<div class="paper-author">
+								<i>
+									Kai-Wei Chang*&emsp;&emsp; Yu-Kai Wang*&emsp;&emsp; Hua Shen&emsp;&emsp;
+									Iu-thing
+									Kang
+									<br>
+									Wei-Chen Tseng&emsp;&emsp; Shang-Wen Li&emsp;&emsp; Hung-yi Lee
+									<br><br>
+								</i>
+								<div style="font-weight:600">
+									National Taiwan University &emsp;&emsp;Pennsylvania State University
+									&emsp;&emsp;Meta AI</div>
+								<br>
+								<div style="font-size:18px">
+									Email: kaiwei.chang.tw@gmail.com
+								</div>
+							</div>
+						</section>
+						<div>
+							<a href="#" class="image featured">
+								<img src="SpeechPrompt-v2-assets/SpeechPrompt-v2-12tasks-framework.png" alt="" />
+							</a>
+						</div>
+
+						<section>
+							<header>
+								<h2>Tasks</h2>
+							</header>
+							<div class="row">
+								<div class="col-6 col-12-medium">
+									<section class="first">
+										<h4>Speech Command Recognition (SCR)</h4>
+										<p>
+											The task is to recognize which keyword is presented in a
+											given utterance. We adopted Google Speech Commands
+											dataset and several low-resource datasets in different
+											languages. These include Grabo Speech Commands,
+											Lithuanian Speech Commands, Dysarthric Mandarin Speech
+											Commands and Arabic Speech Commands.
+										</p>
+
+										<h4>Intent Classification (IC)</h4>
+										<p>
+											This task classifies utterances into predefined classes
+											to determine the intent of speakers. We used the Fluent
+											Speech Commands dataset, where each utterance has three
+											labels: action, object, and location.
+										</p>
+
+										<h4>Language Identification (LID)</h4>
+										<p>
+											This task is to recognize the languages used in an
+											utterance.We used the Voxforge Dataset consisting of six
+											different languages for the task.
+										</p>
+
+										<h4>Fake Speech Detection (FSD)</h4>
+										<p>
+											This task is to distinguish real speech from synthetic
+											speech. We used the Logical Access (LA) part of ASVspoof
+											dataset, which contains bona fide and spoofed speech.
+										</p>
+
+										<h4>Emotion Recognition (ER)</h4>
+										<p>
+											This task predicts an emotion class for each utterance.
+											The most widely used ER dataset IEMOCAP is adopted in
+											this work.
+										</p>
+										<h4>Dysarthria Classification (DYC)</h4>
+										<!---->
+										<p>
+											The task is to assess the Therapy Outcome Measure (TOM)
+											of a dysarthric patient ranging from 1 to 5
+											corresponding to different severities of dysarthria, and
+											0 for control subjects. We adopted the EasyCall Dataset
+											for the task.
+										</p>
+									</section>
+								</div>
+								<div class="col-6 col-12-medium">
+									<section class="last">
+										<h4>Accent Classification (AcC)</h4>
+										<p>
+											This task classifies different accents of the same
+											language.We used the AccentDB Dataset containing 4
+											Indian-English accents, 4 native-English and 1
+											metropolitan Indian-English accent.
+										</p>
+										<h4>Sarcasm Detection (SD)</h4>
+										<p>
+											The task is to detect whether an utterance contains
+											sarcasm. We adopted 2 datasets, Mustard and Muatard++,
+											of which the former can be said to be a subset of the
+											latter.
+										</p>
+
+										<h4>Gender Identification (GID)</h4>
+										<p>
+											The task aims to distinguish the sex of the speaker. We
+											adopted the VoxCeleb1 Dataset and obtained the label
+											based on the provided speaker information.
+										</p>
+
+										<h4>Speaker Identification (SID)</h4>
+										<!---->
+										<p>
+											This task classifies utterances into predefined classes
+											to determine the intent of speakers. We used the Fluent
+											Speech Commands dataset, where each utterance has three
+											labels: action, object, and location.
+										</p>
+
+										<h4>Voice Activity Detection (VAD)</h4>
+										<p>
+											This task is to detect the input audio containing speech
+											or background noise. We used Google Speech Commands v2
+											as speech data and Freesound dataset as background noise
+											data.
+										</p>
+
+										<h4>Audio Classification (AuC)</h4>
+										<p>
+											This task classifies different environmental sounds
+											across human and nature. We used the ESC-50 with 50
+											different classes for the task.
+										</p>
+									</section>
+								</div>
+							</div>
+						</section>
+						<hr />
+						<section>
+							<header>
+								<h2>Datasets</h2>
+							</header>
+							<div class="ritz grid-container" dir="ltr">
+								<table class="waffle" cellspacing="0" cellpadding="0">
+									<tbody>
+										<tr style="height: 20px; font-weight: bold">
+											<th style="height: 20px" class="row-headers-background">
+												<div class="row-header-wrapper" style="line-height: 20px">
+													Index
+												</div>
+											</th>
+											<td class="s0" dir="ltr">Task</td>
+											<td class="s0" dir="ltr">Datasets</td>
+											<td class="s0" dir="ltr">Language</td>
+											<td class="s0" dir="ltr">N_class</td>
+											<td class="s0" dir="ltr">N_utt.</td>
+											<td class="s0" dir="ltr">Content</td>
+											<td class="s0" dir="ltr">Prosody</td>
+											<td class="s0" dir="ltr">Speaker</td>
+											<td class="s0" dir="ltr">Audio</td>
+										</tr>
+										<tr style="height: 20px">
+											<th style="height: 20px" class="row-headers-background">
+												<div class="row-header-wrapper" style="line-height: 20px">
+													1
+												</div>
+											</th>
+											<td class="s0" dir="ltr" rowspan="5">SCR</td>
+											<td class="s0" dir="ltr">Google Speech Commands</td>
+											<td class="s0" dir="ltr">English</td>
+											<td class="s0" dir="ltr">12</td>
+											<td class="s0" dir="ltr">72783</td>
+											<td class="s1" dir="rtl">✔</td>
+											<td class="s2"></td>
+											<td class="s2"></td>
+											<td class="s2"></td>
+										</tr>
+										<tr style="height: 20px">
+											<th style="height: 20px" class="row-headers-background">
+												<div class="row-header-wrapper" style="line-height: 20px">
+													2
+												</div>
+											</th>
+											<td class="s0" dir="ltr">Grabo Speech Commands</td>
+											<td class="s0" dir="ltr">Dutch</td>
+											<td class="s0" dir="ltr">36</td>
+											<td class="s0" dir="ltr">6007</td>
+											<td class="s0" dir="ltr">✔</td>
+											<td class="s2"></td>
+											<td class="s2"></td>
+											<td class="s2"></td>
+										</tr>
+										<tr style="height: 20px">
+											<th style="height: 20px" class="row-headers-background">
+												<div class="row-header-wrapper" style="line-height: 20px">
+													3
+												</div>
+											</th>
+											<td class="s0" dir="ltr">Lithuanian Speech Commands</td>
+											<td class="s0" dir="ltr">Lithuanian</td>
+											<td class="s0" dir="ltr">15</td>
+											<td class="s0" dir="ltr">809</td>
+											<td class="s0" dir="ltr">✔</td>
+											<td class="s2"></td>
+											<td class="s2"></td>
+											<td class="s2"></td>
+										</tr>
+										<tr style="height: 20px">
+											<th style="height: 20px" class="row-headers-background">
+												<div class="row-header-wrapper" style="line-height: 20px">
+													4
+												</div>
+											</th>
+											<td class="s0" dir="ltr">Arabic Speech Commands</td>
+											<td class="s0" dir="ltr">Arabic</td>
+											<td class="s0" dir="ltr">16</td>
+											<td class="s0" dir="ltr">1600</td>
+											<td class="s0" dir="ltr">✔</td>
+											<td class="s2"></td>
+											<td class="s2"></td>
+											<td class="s2"></td>
+										</tr>
+										<tr style="height: 20px">
+											<th style="height: 20px" class="row-headers-background">
+												<div class="row-header-wrapper" style="line-height: 20px">
+													5
+												</div>
+											</th>
+											<td class="s0" dir="ltr">
+												Dysarthric Mandarin <br />
+												Speech Commands
+											</td>
+											<td class="s0" dir="ltr">Mandarin</td>
+											<td class="s0" dir="ltr">19</td>
+											<td class="s0" dir="ltr">570</td>
+											<td class="s0" dir="ltr">✔</td>
+											<td class="s0" dir="ltr">✔</td>
+											<td class="s2"></td>
+											<td class="s2"></td>
+										</tr>
+
+										<tr style="height: 20px">
+											<th style="height: 20px" class="row-headers-background">
+												<div class="row-header-wrapper" style="line-height: 20px">
+													6
+												</div>
+											</th>
+											<td class="s0" dir="ltr">IC</td>
+											<td class="s0" dir="ltr">Fluent Speech Commands</td>
+											<td class="s0" dir="ltr">English</td>
+											<td class="s0" dir="ltr">24</td>
+											<td class="s0" dir="ltr">30043</td>
+											<td class="s0" dir="ltr">✔</td>
+											<td class="s2"></td>
+											<td class="s0" dir="ltr"></td>
+											<td class="s2"></td>
+										</tr>
+										<tr style="height: 20px">
+											<th style="height: 20px" class="row-headers-background">
+												<div class="row-header-wrapper" style="line-height: 20px">
+													7
+												</div>
+											</th>
+											<td class="s0" dir="ltr">LID</td>
+											<td class="s0" dir="ltr">Voxforge</td>
+											<td class="s0" dir="ltr">
+												English, Spanish, French<br />German, Russian, Italian
+											</td>
+											<td class="s0" dir="ltr">6</td>
+											<td class="s0" dir="ltr">10800</td>
+											<td class="s0" dir="ltr">✔</td>
+											<td class="s2"></td>
+											<td class="s2"></td>
+											<td class="s2"></td>
+										</tr>
+										<tr style="height: 20px">
+											<th style="height: 20px" class="row-headers-background">
+												<div class="row-header-wrapper" style="line-height: 20px">
+													8
+												</div>
+											</th>
+											<td class="s0" dir="ltr">FSD</td>
+											<td class="s0" dir="ltr">ASVspoof</td>
+											<td class="s0" dir="ltr">English</td>
+											<td class="s0" dir="ltr">2</td>
+											<td class="s0" dir="ltr">121461</td>
+											<td class="s0" dir="ltr">✔</td>
+											<td class="s0" dir="ltr">✔</td>
+											<td class="s2"></td>
+											<td class="s2"></td>
+										</tr>
+
+										<tr style="height: 20px">
+											<th style="height: 20px" class="row-headers-background">
+												<div class="row-header-wrapper" style="line-height: 20px">
+													9
+												</div>
+											</th>
+											<td class="s0" dir="ltr">ER</td>
+											<td class="s0" dir="ltr">IEMOCAP</td>
+											<td class="s0" dir="ltr">English</td>
+											<td class="s0" dir="ltr">4</td>
+											<td class="s0" dir="ltr">5531</td>
+											<td class="s0" dir="ltr">✔</td>
+											<td class="s0" dir="ltr">✔</td>
+											<td class="s2"></td>
+											<td class="s2"></td>
+										</tr>
+										<tr style="height: 20px">
+											<th style="height: 20px" class="row-headers-background">
+												<div class="row-header-wrapper" style="line-height: 20px">
+													10
+												</div>
+											</th>
+											<td class="s0" dir="ltr">DYC</td>
+											<td class="s0" dir="ltr">EasyCall</td>
+											<td class="s0" dir="ltr">Italian</td>
+											<td class="s0" dir="ltr">6</td>
+											<td class="s0" dir="ltr">21386</td>
+											<td class="s0" dir="ltr">✔</td>
+											<td class="s0" dir="ltr">✔</td>
+											<td class="s2"></td>
+											<td class="s2"></td>
+										</tr>
+										<tr style="height: 20px">
+											<th style="height: 20px" class="row-headers-background">
+												<div class="row-header-wrapper" style="line-height: 20px">
+													11
+												</div>
+											</th>
+											<td class="s0" dir="ltr">AcC</td>
+											<td class="s0" dir="ltr">AccentDB</td>
+											<td class="s0" dir="ltr">English</td>
+											<td class="s0" dir="ltr">9</td>
+											<td class="s0" dir="ltr">17313</td>
+											<td class="s2"></td>
+											<td class="s0" dir="ltr">✔</td>
+											<td class="s2"></td>
+											<td class="s2"></td>
+										</tr>
+										<tr style="height: 20px">
+											<th style="height: 20px" class="row-headers-background">
+												<div class="row-header-wrapper" style="line-height: 20px">
+													12
+												</div>
+											</th>
+											<td class="s0" dir="ltr" rowspan="2">SD</td>
+											<td class="s0" dir="ltr">MUStARD</td>
+											<td class="s0" dir="ltr">English</td>
+											<td class="s0" dir="ltr">2</td>
+											<td class="s0" dir="ltr">690</td>
+											<td class="s2"></td>
+											<td class="s0" dir="ltr">✔</td>
+											<td class="s2"></td>
+											<td class="s2"></td>
+										</tr>
+										<tr style="height: 20px">
+											<th style="height: 20px" class="row-headers-background">
+												<div class="row-header-wrapper" style="line-height: 20px">
+													13
+												</div>
+											</th>
+											<td class="s0" dir="ltr">MUStARD++</td>
+											<td class="s0" dir="ltr">English</td>
+											<td class="s0" dir="ltr">2</td>
+											<td class="s0" dir="ltr">1202</td>
+											<td class="s2"></td>
+											<td class="s0" dir="ltr">✔</td>
+											<td class="s2"></td>
+											<td class="s2"></td>
+										</tr>
+										<tr style="height: 20px">
+											<th style="height: 20px" class="row-headers-background">
+												<div class="row-header-wrapper" style="line-height: 20px">
+													14
+												</div>
+											</th>
+											<td class="s0" dir="ltr">GID</td>
+											<td class="s0" dir="ltr">VoxCeleb1</td>
+											<td class="s0" dir="ltr">English</td>
+											<td class="s0" dir="ltr">2</td>
+											<td class="s0" dir="ltr">153516</td>
+											<td class="s2"></td>
+											<td class="s0" dir="ltr">✔</td>
+											<td class="s0" dir="ltr">✔</td>
+											<td class="s2"></td>
+										</tr>
+										<tr style="height: 20px">
+											<th style="height: 20px" class="row-headers-background">
+												<div class="row-header-wrapper" style="line-height: 20px">
+													15
+												</div>
+											</th>
+											<td class="s0" dir="ltr">SID</td>
+											<td class="s0" dir="ltr">VoxCeleb1</td>
+											<td class="s0" dir="ltr">English</td>
+											<td class="s0" dir="ltr">1251</td>
+											<td class="s0" dir="ltr">153516</td>
+											<td class="s2"></td>
+											<td class="s0" dir="ltr">✔</td>
+											<td class="s0" dir="ltr">✔</td>
+											<td class="s2"></td>
+										</tr>
+
+										<tr style="height: 20px">
+											<th style="height: 20px" class="row-headers-background">
+												<div class="row-header-wrapper" style="line-height: 20px">
+													16
+												</div>
+											</th>
+											<td class="s0" dir="ltr">VAD</td>
+											<td class="s0" dir="ltr">
+												Google Speech Commands <br />
+												&amp; Freesound
+											</td>
+											<td class="s0" dir="ltr">English / Audio</td>
+											<td class="s0" dir="ltr">2</td>
+											<td class="s0" dir="ltr">109617</td>
+											<td class="s2"></td>
+											<td class="s2"></td>
+											<td class="s2"></td>
+											<td class="s0" dir="ltr">✔</td>
+										</tr>
+										<tr style="height: 20px">
+											<th style="height: 20px" class="row-headers-background">
+												<div class="row-header-wrapper" style="line-height: 20px">
+													17
+												</div>
+											</th>
+											<td class="s0" dir="ltr">AuC</td>
+											<td class="s0" dir="ltr">ESC-50</td>
+											<td class="s0" dir="ltr">Audio</td>
+											<td class="s0" dir="ltr">50</td>
+											<td class="s0" dir="ltr">2000</td>
+											<td class="s2"></td>
+											<td class="s2"></td>
+											<td class="s2"></td>
+											<td class="s0" dir="ltr">✔</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</section>
+						<hr />
+						<section>
+							<header>
+								<h2>Benchmark</h2>
+							</header>
+							<table class="waffle" cellspacing="0" cellpadding="0">
+								<tbody>
+									<tr style="height: 20px; font-weight: bold">
+										<th id="1696479533R0" style="height: 20px" class="row-headers-background">
+											<div class="row-header-wrapper" style="line-height: 20px">
+												Index
+											</div>
+										</th>
+										<td class="s0" dir="ltr">Task</td>
+										<td class="s0" dir="ltr">Datasets</td>
+										<td class="s0" dir="ltr">Prior <br /></td>
+										<td class="s0" dir="ltr">GSLM</td>
+										<td class="s0" dir="ltr">GSLM+</td>
+										<td class="s0" dir="ltr">pGSLM</td>
+										<td class="s0" dir="ltr">pGSLM+</td>
+									</tr>
+									<tr style="height: 20px">
+										<th id="1696479533R1" style="height: 20px" class="row-headers-background">
+											<div class="row-header-wrapper" style="line-height: 20px">
+												1
+											</div>
+										</th>
+										<td class="s0" dir="ltr" rowspan="5">SCR (↑)</td>
+										<td class="s0" dir="ltr">Google Speech Commands</td>
+										<td class="s0" dir="ltr">0.986</td>
+										<td class="s0" dir="ltr">0.945</td>
+										<td class="s0" dir="ltr">0.946</td>
+										<td class="s0" dir="ltr">0.943</td>
+										<td class="s1" dir="ltr">0.947</td>
+									</tr>
+									<tr style="height: 20px">
+										<th id="1696479533R2" style="height: 20px" class="row-headers-background">
+											<div class="row-header-wrapper" style="line-height: 20px">
+												2
+											</div>
+										</th>
+										<td class="s0" dir="ltr">Grabo Speech Commands</td>
+										<td class="s0" dir="ltr">0.989</td>
+										<td class="s0" dir="ltr">0.924</td>
+										<td class="s1" dir="ltr">0.927</td>
+										<td class="s0" dir="ltr">0.175</td>
+										<td class="s0" dir="ltr">0.196</td>
+									</tr>
+									<tr style="height: 20px">
+										<th id="1696479533R3" style="height: 20px" class="row-headers-background">
+											<div class="row-header-wrapper" style="line-height: 20px">
+												3
+											</div>
+										</th>
+										<td class="s0" dir="ltr">Lithuanian Speech Commands</td>
+										<td class="s0" dir="ltr">0.918</td>
+										<td class="s0" dir="ltr">0.932</td>
+										<td class="s1" dir="ltr">0.955</td>
+										<td class="s0" dir="ltr">0.909</td>
+										<td class="s0" dir="ltr">0.795</td>
+									</tr>
+									<tr style="height: 20px">
+										<th id="1696479533R4" style="height: 20px" class="row-headers-background">
+											<div class="row-header-wrapper" style="line-height: 20px">
+												4
+											</div>
+										</th>
+										<td class="s0" dir="ltr">Arabic Speech Commands</td>
+										<td class="s0" dir="ltr">0.989</td>
+										<td class="s0" dir="ltr">0.997</td>
+										<td class="s1" dir="ltr">1.000</td>
+										<td class="s0" dir="ltr">0.856</td>
+										<td class="s0" dir="ltr">0.926</td>
+									</tr>
+									<tr style="height: 20px">
+										<th id="1696479533R5" style="height: 20px" class="row-headers-background">
+											<div class="row-header-wrapper" style="line-height: 20px">
+												5
+											</div>
+										</th>
+										<td class="s0" dir="ltr">
+											Dysarthric Mandarin <br />
+											Speech Commands
+										</td>
+										<td class="s0" dir="ltr">0.935</td>
+										<td class="s0" dir="ltr">0.743</td>
+										<td class="s1" dir="ltr">0.825</td>
+										<td class="s0" dir="ltr">0.744</td>
+										<td class="s0" dir="ltr">0.231</td>
+									</tr>
+									<tr style="height: 20px">
+										<th id="1696479533R6" style="height: 20px" class="row-headers-background">
+											<div class="row-header-wrapper" style="line-height: 20px">
+												6
+											</div>
+										</th>
+										<td class="s0" dir="ltr">IC (↑)</td>
+										<td class="s0" dir="ltr">Fluent Speech Commands</td>
+										<td class="s0" dir="ltr">0.997</td>
+										<td class="s0" dir="ltr">0.972</td>
+										<td class="s0" dir="ltr">0.973</td>
+										<td class="s0" dir="ltr">0.981</td>
+										<td class="s1" dir="ltr">0.982</td>
+									</tr>
+									<tr style="height: 20px">
+										<th id="1696479533R7" style="height: 20px" class="row-headers-background">
+											<div class="row-header-wrapper" style="line-height: 20px">
+												7
+											</div>
+										</th>
+										<td class="s0" dir="ltr">LID (↑)</td>
+										<td class="s0" dir="ltr">Voxforge</td>
+										<td class="s0" dir="ltr">0.998</td>
+										<td class="s0" dir="ltr">0.909</td>
+										<td class="s0" dir="ltr">0.942</td>
+										<td class="s0" dir="ltr">0.818</td>
+										<td class="s0" dir="ltr">0.804</td>
+									</tr>
+									<tr style="height: 20px">
+										<th id="1696479533R8" style="height: 20px" class="row-headers-background">
+											<div class="row-header-wrapper" style="line-height: 20px">
+												8
+											</div>
+										</th>
+										<td class="s0" dir="ltr">FSD (↓)</td>
+										<td class="s0" dir="ltr">ASVspoof</td>
+										<td class="s0" dir="ltr">0.025</td>
+										<td class="s0" dir="ltr">0.185</td>
+										<td class="s0" dir="ltr">0.135</td>
+										<td class="s1" dir="ltr">0.131</td>
+										<td class="s0" dir="ltr">0.183</td>
+									</tr>
+									<tr style="height: 20px">
+										<th id="1696479533R9" style="height: 20px" class="row-headers-background">
+											<div class="row-header-wrapper" style="line-height: 20px">
+												9
+											</div>
+										</th>
+										<td class="s0" dir="ltr">ER (↑)</td>
+										<td class="s0" dir="ltr">IEMOCAP</td>
+										<td class="s0" dir="ltr">0.792</td>
+										<td class="s0" dir="ltr">0.421</td>
+										<td class="s0" dir="ltr">0.443</td>
+										<td class="s0" dir="ltr">0.499</td>
+										<td class="s1" dir="ltr">0.502</td>
+									</tr>
+									<tr style="height: 20px">
+										<th id="1696479533R10" style="height: 20px" class="row-headers-background">
+											<div class="row-header-wrapper" style="line-height: 20px">
+												10
+											</div>
+										</th>
+										<td class="s0" dir="ltr">DYC (↑)</td>
+										<td class="s0" dir="ltr">EasyCall</td>
+										<td class="s0" dir="ltr">X</td>
+										<td class="s0" dir="ltr">0.763</td>
+										<td class="s0" dir="ltr">0.78</td>
+										<td class="s1" dir="ltr">0.838</td>
+										<td class="s0" dir="ltr">0.832</td>
+									</tr>
+									<tr style="height: 20px">
+										<th id="1696479533R11" style="height: 20px" class="row-headers-background">
+											<div class="row-header-wrapper" style="line-height: 20px">
+												11
+											</div>
+										</th>
+										<td class="s0" dir="ltr">AcC (↑)</td>
+										<td class="s0" dir="ltr">AccentDB</td>
+										<td class="s0" dir="ltr">0.995</td>
+										<td class="s0" dir="ltr">0.789</td>
+										<td class="s0" dir="ltr">0.834</td>
+										<td class="s0" dir="ltr">0.865</td>
+										<td class="s0" dir="ltr">0.871</td>
+									</tr>
+									<tr style="height: 20px">
+										<th id="1696479533R12" style="height: 20px" class="row-headers-background">
+											<div class="row-header-wrapper" style="line-height: 20px">
+												12
+											</div>
+										</th>
+										<td class="s0" dir="ltr" rowspan="2">SD (↑)</td>
+										<td class="s0" dir="ltr">MUStARD</td>
+										<td class="s0" dir="ltr">0.646</td>
+										<td class="s0" dir="ltr">0.551</td>
+										<td class="s0" dir="ltr">0.778</td>
+										<td class="s0" dir="ltr">0.744</td>
+										<td class="s1" dir="ltr">0.787</td>
+									</tr>
+									<tr style="height: 20px">
+										<th id="1696479533R13" style="height: 20px" class="row-headers-background">
+											<div class="row-header-wrapper" style="line-height: 20px">
+												13
+											</div>
+										</th>
+										<td class="s0" dir="ltr">MUStARD++</td>
+										<td class="s0" dir="ltr">0.652</td>
+										<td class="s0" dir="ltr">0.74</td>
+										<td class="s1" dir="ltr">0.752</td>
+										<td class="s0" dir="ltr">0.527</td>
+										<td class="s0" dir="ltr">0.582</td>
+									</tr>
+									<tr style="height: 20px">
+										<th id="1696479533R14" style="height: 20px" class="row-headers-background">
+											<div class="row-header-wrapper" style="line-height: 20px">
+												14
+											</div>
+										</th>
+										<td class="s0" dir="ltr">GID (↑)</td>
+										<td class="s0" dir="ltr">VoxCeleb1</td>
+										<td class="s0" dir="ltr">0.983</td>
+										<td class="s0" dir="ltr">0.862</td>
+										<td class="s0" dir="ltr">0.873</td>
+										<td class="s1" dir="ltr">0.916</td>
+										<td class="s0" dir="ltr">0.862</td>
+									</tr>
+									<tr style="height: 20px">
+										<th id="1696479533R15" style="height: 20px" class="row-headers-background">
+											<div class="row-header-wrapper" style="line-height: 20px">
+												15
+											</div>
+										</th>
+										<td class="s0" dir="ltr">SID (↑)</td>
+										<td class="s0" dir="ltr">VoxCeleb1</td>
+										<td class="s0" dir="ltr">0.948</td>
+										<td class="s0" dir="ltr">X</td>
+										<td class="s1" dir="ltr">0.009</td>
+										<td class="s0" dir="ltr">X</td>
+										<td class="s0" dir="ltr">0.003</td>
+									</tr>
+
+									<tr style="height: 20px">
+										<th id="1696479533R16" style="height: 20px" class="row-headers-background">
+											<div class="row-header-wrapper" style="line-height: 20px">
+												16
+											</div>
+										</th>
+										<td class="s0" dir="ltr">VAD (↑)</td>
+										<td class="s0" dir="ltr">
+											Google Speech Commands<br />
+											&amp; Freesound
+										</td>
+										<td class="s0" dir="ltr">0.988</td>
+										<td class="s0" dir="ltr">0.966</td>
+										<td class="s0" dir="ltr">0.969</td>
+										<td class="s1" dir="ltr">0.983</td>
+										<td class="s0" dir="ltr">0.981</td>
+									</tr>
+									<tr style="height: 20px">
+										<th id="1696479533R17" style="height: 20px" class="row-headers-background">
+											<div class="row-header-wrapper" style="line-height: 20px">
+												17
+											</div>
+										</th>
+										<td class="s0" dir="ltr">AuC (↑)</td>
+										<td class="s0" dir="ltr">ESC-50</td>
+										<td class="s0" dir="ltr">0.97</td>
+										<td class="s0" dir="ltr">0.09</td>
+										<td class="s1" dir="ltr">0.375</td>
+										<td class="s0" dir="ltr">0.203</td>
+										<td class="s0" dir="ltr">0.27</td>
+									</tr>
+								</tbody>
+							</table>
+						</section>
+
+						<section>
+							<header>
+								<h2>Verbalizer Analysis</h2>
+							</header>
+							<h3>SHAP</h3>
+							<p>
+								SHAP analysis is a method to explain the output of a machine
+								learning model. It assigns a score to each feature of the
+								input data, based on how much the feature value is responsible
+								for the model output. The SHAP values can be used to visualize
+								the model output and the importance of each feature. The SHAP
+								values are calculated using a game theory approach, where the
+								model output is viewed as a function of the input features.
+							</p>
+
+							<h3>Google Speech Command Recognition</h3>
+							<br>
+							<h3>YES</h3>
+							<div class="row">
+								<div class="col-4 col-12-medium">
+									<section class="first">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/yes-1.png" alt="" />
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="middle">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/yes-2.png" alt="" />
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="last">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/yes-3.png" alt="" />
+									</section>
+								</div>
+							</div>
+							<h3>NO</h3>
+							<div class="row">
+								<div class="col-4 col-12-medium">
+									<section class="first">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/no-1.png" alt="" />
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="middle">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/no-2.png" alt="" />
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="last">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/no-3.png" alt="" />
+									</section>
+								</div>
+							</div>
+							<h3>UP</h3>
+							<div class="row">
+								<div class="col-4 col-12-medium">
+									<section class="first">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/up-1.png" alt="" />
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="middle">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/up-2.png" alt="" />
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="last">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/up-3.png" alt="" />
+									</section>
+								</div>
+							</div>
+							<h3>DOWN</h3>
+							<div class="row">
+								<div class="col-4 col-12-medium">
+									<section class="first">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/down-1.png" alt="" />
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="middle">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/down-2.png" alt="" />
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="last">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/left-3.png" alt="" />
+									</section>
+								</div>
+							</div>
+							<h3>RIGHT</h3>
+							<div class="row">
+								<div class="col-4 col-12-medium">
+									<section class="first">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/right-1.png" alt="" />
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="middle">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/right-2.png" alt="" />
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="last">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/right-3.png" alt="" />
+									</section>
+								</div>
+							</div>
+							<h3>ON</h3>
+							<div class="row">
+								<div class="col-4 col-12-medium">
+									<section class="first">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/on-1.png" alt="" />
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="middle">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/on-2.png" alt="" />
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="last">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/on-3.png" alt="" />
+									</section>
+								</div>
+							</div>
+							<h3>OFF</h3>
+							<div class="row">
+								<div class="col-4 col-12-medium">
+									<section class="first">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/off-1.png" alt="" />
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="middle">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/off-2.png" alt="" />
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="last">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/off-3.png" alt="" />
+									</section>
+								</div>
+							</div>
+							<h3>STOP</h3>
+							<div class="row">
+								<div class="col-4 col-12-medium">
+									<section class="first">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/stop-1.png" alt="" />
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="middle">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/stop-2.png" alt="" />
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="last">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/stop-3.png" alt="" />
+									</section>
+								</div>
+							</div>
+							<h3>GO</h3>
+							<div class="row">
+								<div class="col-4 col-12-medium">
+									<section class="first">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/go-1.png" alt="" />
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="middle">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/go-2.png" alt="" />
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="last">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/go-3.png" alt="" />
+									</section>
+								</div>
+							</div>
+							<h3>[UNKNOWN]</h3>
+							<div class="row">
+								<div class="col-4 col-12-medium">
+									<section class="first">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/unknown_-1.png" alt="" />
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="middle">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/unknown_-2.png" alt="" />
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="last">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/unknown_-3.png" alt="" />
+									</section>
+								</div>
+							</div>
+							<h3>[SILENCE]</h3>
+							<div class="row">
+								<div class="col-4 col-12-medium">
+									<section class="first">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/silence_-1.png" alt="" />
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="middle">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/silence_-2.png" alt="" />
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="last">
+										<img src="SpeechPrompt-v2-assets/KS-Shap/silence_-3.png" alt="" />
+									</section>
+								</div>
+							</div>
+					</article>
+				</div>
+			</section>
+		</section>
+		<!-- Footer -->
+		<section id="footer">
+			<div class="container"></div>
+		</section>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+</body>
+
+</html>

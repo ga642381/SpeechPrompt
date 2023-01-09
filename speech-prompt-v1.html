@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>SpeechPrompt</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="icon" href="images/power.png" />
+</head>
+
+<body class="no-sidebar is-preload">
+	<div id="page-wrapper">
+		<!-- Header -->
+		<section id="header">
+			<!-- Logo -->
+			<h1><a href="overview.html">SpeechPrompt</a></h1>
+
+			<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li><a href="overview.html">Overview</a></li>
+					<li class="current">
+						<a href="speech-prompt-v1.html">SpeechPrompt v1</a>
+					</li>
+					<li><a href="speech-prompt-v2.html">SpeechPrompt v2</a></li>
+					<!-- <li><a href="no-sidebar.html">More</a></li> -->
+				</ul>
+			</nav>
+
+			<!-- Banner -->
+			<section id="banner">
+				<header>
+					<h2>SpeechPrompt v1</h2>
+					<p style="font-weight: 500">
+						An Exploration of Prompt Tuning on Generative Spoken Language
+						Model <br> for Speech Processing Tasks
+					</p>
+					<br />
+					<ul class="actions">
+						<li>
+							<a href="https://arxiv.org/abs/2203.16773" class="button">Paper</a>
+						</li>
+						<li>
+							<a href="https://github.com/ga642381/SpeechPrompt" class="button">Code</a>
+						</li>
+						<li>
+							<a href="SpeechPrompt-v1-assets/SpeechPrompt-v1-Slides.pdf" class="button">Slides</a>
+						</li>
+					</ul>
+				</header>
+			</section>
+
+			<!-- Main -->
+			<section id="main">
+				<div class="container">
+					<!-- Content -->
+					<article class="box post">
+						<section class="paper-section">
+							<div class="paper-title">
+								SpeechPrompt: An Exploration of Prompt Tuning on Generative Spoken Language Model
+								for Speech Processing Tasks
+							</div>
+							<br>
+							<div class="paper-author">
+								<i>
+									Kai-Wei Chang&emsp;&emsp; Wei-Chen Tseng &emsp;&emsp;Shang-Wen Li
+									&emsp;&emsp;Hung-yi Lee
+								</i>
+								<br><br>
+								<div style="font-weight:600">
+									National Taiwan University&emsp; &emsp;Amazon AI
+								</div>
+								<br>
+								<div style="font-size:18px">
+									Email: kaiwei.chang.tw@gmail.com
+								</div>
+							</div>
+						</section>
+						<a href="#" class="image featured">
+							<img src="SpeechPrompt-v1-assets/SpeechPrompt-v1-framework.png" alt="" />
+						</a>
+						<header>
+							<h2> SpeechPrompt v1</h2>
+							<p>An Exploration of Prompt Tuning on Generative Spoken Language Model for Speech Processing
+								Tasks</p>
+						</header>
+						<section style="line-height: 1.75em; font-size: 22px">
+							<p>
+								Recently, prompting in Natural Language Processing (NLP) has been found to be an
+								efficient technique to leverage pre-trained language models (LMs). Specifically, prompt
+								tuning optimizes a limited number of task-specific parameters with a fixed pre-trained
+								model; as a result, only a small set of parameters is needed to be stored for each task.
+								Prompt tuning improves computation and memory efficiency by leveraging the pre-trained
+								LM's prediction ability. Nevertheless, such a paradigm is little studied in the speech
+								community.
+								<br><br>
+								We report in this paper the first exploration of the prompt tuning paradigm for speech
+								processing tasks based on Generative Spoken Language Model (GSLM). Experiment results
+								show that the prompt tuning technique achieves competitive performance in speech
+								classification tasks with fewer trainable parameters than fine-tuning specialized
+								downstream models. We further study the technique in challenging sequence generation
+								tasks. Prompt tuning also demonstrates its potential, while the limitation and possible
+								research directions are discussed in this paper.
+							</p>
+						</section>
+						<section>
+							<header>
+								<h2>Citation</h2>
+							</header>
+							<div id="bibtex-section" class="section">
+
+								<pre class="verbatim">
+@inproceedings{DBLP:conf/interspeech/ChangT0L22,
+	author    = {Kai{-}Wei Chang and
+	             Wei{-}Cheng Tseng and
+	             Shang{-}Wen Li and
+	             Hung{-}yi Lee},
+	title     = {An Exploration of Prompt Tuning on Generative Spoken Language Model
+		     for Speech Processing Tasks},
+	booktitle = {{INTERSPEECH}},
+	pages     = {5005--5009},
+	publisher = {{ISCA}},
+	year      = {2022}
+}							</pre>
+							</div>
+						</section>
+					</article>
+				</div>
+			</section>
+		</section>
+		<!-- Footer -->
+		<section id="footer">
+			<div class="container"></div>
+		</section>
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+</body>
+
+</html>
