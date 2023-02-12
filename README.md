@@ -1,7 +1,4 @@
-# Project Webiste
-https://ga642381.github.io/SpeechPrompt/
-
-# SpeechPrompt
+# SpeechPrompt &ensp; ![](https://img.shields.io/badge/-Project%20Website-blue?style=for-the-badge&logo=PyTorch)
 
 * Title: An Exploration of Prompt Tuning on Generative Spoken Language Model for Speech Processing Tasks
 
