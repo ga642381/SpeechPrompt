@@ -80,15 +80,9 @@ convert downstream tasks' speech and label into units
 ```bash
 DOWNSTREAM=DOWNSTREAM_NAME
 
-python preprocess/runner.py \
-    --downstream $DOWNSTREAM \
-    --action generate_manifest
-python preprocess/runner.py \
-    --downstream $DOWNSTREAM \
-    --action quantized
-python preprocess/runner.py \
-    --downstream $DOWNSTREAM \
-    --action postprocess
+python preprocess/runner.py --downstream $DOWNSTREAM --action generate_manifest
+python preprocess/runner.py --downstream $DOWNSTREAM --action quantized
+python preprocess/runner.py --downstream $DOWNSTREAM --action postprocess
 ```
 
 * Note1: We have prepared some example data in:
