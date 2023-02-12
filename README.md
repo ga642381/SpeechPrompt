@@ -140,10 +140,8 @@ https://github.com/pytorch/fairseq/tree/main/examples/textless_nlp/gslm/ulm
 python train.py
 
 # e.g.
-python train.py \
-    --date        20220430  \
-    --prompt_task IC        \
-    --unit_model  hubert100 \
+python train.py --date 20220430  \
+    --prompt_task IC --unit_model hubert100 \
     --prefix_prompt_length 6
 ```
 
@@ -162,11 +160,8 @@ python train.py \
 python sample.py
 
 # e.g.
-python sample.py \
-    --prompt_task IC        \
-    --unit_model  hubert100 \
-    --model_date  20220430  \
-    --sample_date 20220430
+python sample.py --prompt_task IC --unit_model hubert100 \
+                 --model_date 20220430 --sample_date 20220430
 ```
 
 * The output files will be saved into 
