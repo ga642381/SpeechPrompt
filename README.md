@@ -79,11 +79,18 @@ convert downstream tasks' speech and label into units
 
 ```bash
 DOWNSTREAM=DOWNSTREAM_NAME
-python preprocess/runner.py --downstream $DOWNSTREAM --action generate_manifest
-python preprocess/runner.py --downstream $DOWNSTREAM --action quantized
-python preprocess/runner.py --downstream $DOWNSTREAM --action postprocess
 
+python preprocess/runner.py \
+    --downstream $DOWNSTREAM \
+    --action generate_manifest
+python preprocess/runner.py \
+    --downstream $DOWNSTREAM \
+    --action quantized
+python preprocess/runner.py \
+    --downstream $DOWNSTREAM \
+    --action postprocess
 ```
+
 * Note1: We have prepared some example data in:
     * SpeechPrompt/preprocess/speech_commands/data
     * SpeechPrompt/preprocess/fluent_commands/data
@@ -141,8 +148,12 @@ https://github.com/pytorch/fairseq/tree/main/examples/textless_nlp/gslm/ulm
 ```bash
 python train.py
 
-e.g.
-python train.py --date 20220430 --prompt_task IC --unit_model hubert100 --prefix_prompt_length 6
+# e.g.
+python train.py \
+    --date        20220430  \
+    --prompt_task IC        \
+    --unit_model  hubert100 \
+    --prefix_prompt_length 6
 ```
 
 
@@ -161,9 +172,9 @@ python sample.py
 
 # e.g.
 python sample.py \
-    --prompt_task IC \
+    --prompt_task IC        \
     --unit_model  hubert100 \
-    --model_date  20220430 \
+    --model_date  20220430  \
     --sample_date 20220430
 ```
 
