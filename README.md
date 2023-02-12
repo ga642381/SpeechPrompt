@@ -1,16 +1,13 @@
-# SpeechPrompt &ensp; [![](https://img.shields.io/badge/-Project%20Website-blue?style=for-the-badge&logo=PyTorch)](https://ga642381.github.io/SpeechPrompt/)
+<h1><img src="https://ga642381.github.io/SpeechPrompt/images/power.png" width="4%" /> SpeechPrompt</h1>
 
-> *Project Website*: https://ga642381.github.io/SpeechPrompt/
+> ### *Project Website*
+> https://ga642381.github.io/SpeechPrompt/
 
-* Title: An Exploration of Prompt Tuning on Generative Spoken Language Model for Speech Processing Tasks
-
+* ***Title***: An Exploration of Prompt Tuning on Generative Spoken Language Model for Speech Processing Tasks
 * This is the first work that explores **prompt tuning (discovered units level)** on Generative Spoken Lanugage Model (GSLM) for various **speech processing** tasks. 
-
-* Paper Link: [https://arxiv.org/abs/2203.16773](https://arxiv.org/abs/2203.16773)
-
-* Slides: [Interspeech2022 Oral Presentation](https://drive.google.com/file/d/1QC9sDdnobgDoO_t2oaY0fy6bfNdsK3jl/view?fbclid=IwAR3FntCnPrpmUN0xcjxwBrQFJF83K22nlXAYtGKNfCnpd1Vhy2ULzLCqIZ0)
-
-* Comment: Accepted at Interspeech 2022
+* ***Paper Link***: https://arxiv.org/abs/2203.16773
+* ***Slides***: [Interspeech2022 Oral Presentation](https://drive.google.com/file/d/1QC9sDdnobgDoO_t2oaY0fy6bfNdsK3jl/view?fbclid=IwAR3FntCnPrpmUN0xcjxwBrQFJF83K22nlXAYtGKNfCnpd1Vhy2ULzLCqIZ0)
+* ***Comment***: Accepted at Interspeech 2022
 
 ![title](assets/framework.png)
 
