@@ -1,7 +1,6 @@
-# Project Webiste
-https://ga642381.github.io/SpeechPrompt/
+# SpeechPrompt &ensp; [![](https://img.shields.io/badge/-Project%20Website-blue?style=for-the-badge&logo=PyTorch)](https://ga642381.github.io/SpeechPrompt/)
 
-# SpeechPrompt
+> *Project Website*: https://ga642381.github.io/SpeechPrompt/
 
 * Title: An Exploration of Prompt Tuning on Generative Spoken Language Model for Speech Processing Tasks
 
@@ -42,7 +41,7 @@ This is a project under the research topic: **Leveraging Pre-training Models for
 For more information, please refer to our website: https://jsalt-2022-ssl.github.io/
 
 ## Citation
-```
+```latex
 @article{chang2022exploration,
   title={An Exploration of Prompt Tuning on Generative Spoken Language Model for Speech Processing Tasks},
   author={Chang, Kai-Wei and Tseng, Wei-Cheng and Li, Shang-Wen and Lee, Hung-yi},
@@ -54,13 +53,13 @@ For more information, please refer to our website: https://jsalt-2022-ssl.github
 ### 1. Environment
 
 Create Conda virtual environment:
-```
+```shell
 conda env create -f environment.yaml
 conda activate speech_prompt
 ```
 
 Install fairseq with the tested version:
-```
+```bash
 git clone https://github.com/facebookresearch/fairseq.git
 cd faireq/
 git checkout e55e094
@@ -77,13 +76,14 @@ convert downstream tasks' speech and label into units
 3. quantize
 4. postprocessing (add downstream task's label)
 
-```
+```bash
 DOWNSTREAM=DOWNSTREAM_NAME
+
 python preprocess/runner.py --downstream $DOWNSTREAM --action generate_manifest
 python preprocess/runner.py --downstream $DOWNSTREAM --action quantized
 python preprocess/runner.py --downstream $DOWNSTREAM --action postprocess
-
 ```
+
 * Note1: We have prepared some example data in:
     * SpeechPrompt/preprocess/speech_commands/data
     * SpeechPrompt/preprocess/fluent_commands/data
@@ -106,13 +106,13 @@ Preprocess data into the format that fits fairseq
 
     ("\<s\>"  is the separation token)
     
-    ```
+    ```bash
     python make_data.py
     ```
     &rarr; generate dataset/data_prompt/
 
 2. verbalizer
-    ```
+    ```bash
     python gen_labelspace.py 
     ```
     &rarr; create labelspace.json
@@ -125,7 +125,7 @@ Preprocess data into the format that fits fairseq
     &rarr; genearte dataset/data_freq/
 
 3. convert the dataset/data_freq/ into binary files:
-    ```
+    ```bash
     python fairseq_preprocess.py
     ```
     &rarr; genearte data-bins/
@@ -138,11 +138,13 @@ https://github.com/pytorch/fairseq/tree/main/examples/textless_nlp/gslm/ulm
     
     * In the paper, we used **HuBERT-100** and **CPC-100**
 
-```
+```bash
 python train.py
 
-e.g.
-python train.py --date 20220430 --prompt_task IC --unit_model hubert100 --prefix_prompt_length 6
+# e.g.
+python train.py --date 20220430  \
+    --prompt_task IC --unit_model hubert100 \
+    --prefix_prompt_length 6
 ```
 
 
@@ -156,18 +158,19 @@ python train.py --date 20220430 --prompt_task IC --unit_model hubert100 --prefix
 [task]\_[unit_model]\_log\_[model_serial_number (date)]
 
 ### 5. Inference (sampling)
-```
+```bash
 python sample.py
 
-e.g.
-python sample.py --prompt_task IC --unit_model hubert100 --model_date 20220430 --sample_date 20220430
+# e.g.
+python sample.py --prompt_task IC --unit_model hubert100 \
+                 --model_date 20220430 --sample_date 20220430
 ```
 
 * The output files will be saved into 
 samples / samples\_[sample_date] / samples\_[task]\_[unit_model]\_[model_date].json
 
 ### 6. Performance Evaluation
-```
+```bash
 python cal_acc.py
 ```
 
