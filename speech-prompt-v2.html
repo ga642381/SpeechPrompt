@@ -40,7 +40,9 @@
 					</p>
 					<br />
 					<ul class="actions">
-						<li><a href="#" class="button">Paper (coming soon)</a></li>
+						<li>
+							<a href="https://arxiv.org/abs/2303.00733" class="button">Paper</a>
+						</li>
 						<li><a href="#" class="button">Code (coming soon)</a></li>
 					</ul>
 				</header>
@@ -757,6 +759,113 @@
 									</tr>
 								</tbody>
 							</table>
+						</section>
+
+						<section>
+							<header>
+								<h2>Prior Works / Previous SOTAs</h2>
+							</header>
+							<p> Here we list the prior works that are in "Fully Supervised Learning" or "Pre-train,
+								Fine-tune" paradigm. The model parameters are also listed for reference. Note that in
+								SpeechPrompt v2, we only train <b>0.128M parameters</b> for each task. The pre-trained
+								speech encoder, HuBERT, and the unit langauge model, contain 89M and 151M parameters
+								respectively. While during traning, the whole spoken langauge model (speech encoder +
+								uLM) is fixed.</p>
+							<h3>SCR - Google Speech Commands V1</h3>
+							<h4>Learning Efficient Representations for Keyword Spotting with Triplet Loss (Vygon and
+								Mikhaylovskiy, SPECOM 2021)</h4>
+							[<a href="https://link.springer.com/chapter/10.1007/978-3-030-87802-3_69">Link</a>]
+
+							<p>
+								The author used a combination of triplet-loss based
+								metric embeddings and a kNN
+								classifier to enhance the accuracy of a CNN-based model in keyword spotting. The model,
+								based on res15, achieved 0.986 accuracy on the Google Speech Commands Dataset v1 testing
+								set, with <b>0.25M parameters</b>.
+							</p>
+
+							<h3>SCR - Grabo Speech Commands</h3>
+							<h4>Improving end-to-end speech-to-intent classification with reptile (Tian and Gorinski,
+								INTERSPEECH 2020)</h4>
+							[<a href="https://arxiv.org/abs/2008.01994">Link</a>]
+							<p>
+								The authors adapt the meta-learning algorithm, Reptile to train an end-to-end Spoken
+								Language Understanding (SLU) model. Furthermore, they incorporate pre-trained ASR models
+								to the input of SLU models, and support cross-lingual transfer learning. Their approach
+								achieved 0.989 on the accuracy of the testing set of the Grabo Dataset. The size of the
+								proposed model is estimated to be <b>1M parameters</b>.
+							</p>
+
+							<h3>SCR - Lithuanian / Dysarthric Mandarin / Arabic Speech Commands </h3>
+							<h4> A Study of Low-Resource Speech Commands Recognition based on Adversarial Reprogramming
+								(Yen et al., arXiv 2021)
+							</h4>
+							[<a href="https://arxiv.org/abs/2110.03894">Link</a>]
+							<p>
+								SpeechAdvReprogram built a speech commands recognition system using adversarial
+								reprogramming and transfer learning approaches with an acoustic model pretrained on the
+								Google Speech Commands Dataset. This system, having more than <b>0.2M parameters</b>,
+								achieved
+								0.918, 0.823, and 0.989 on the accuracy of the testing set of the Lithuanian, Dysarthric
+								Mandarin, and Arabic Speech Commands Dataset respectively.
+							</p>
+
+							<h3>LID - Voxforge / FSD - ASVspoof / ER- IEMOCAP</h3>
+							<h4>Universal Paralinguistic Speech Representations Using Self-Supervised Conformers (Shor
+								et al.,ICASSP 2022)</h4>
+							[<a href="https://ieeexplore.ieee.org/document/9747197">Link</a>]
+							<p>
+								The author proposed a <b>608M-parameter</b> Conformer-based model, trained fully
+								self-supervised on YT-U, a 900k-hour dataset from YouTube. The 12th layer of the
+								Conformer was taken as the representation, and a linear classifier was finetuned on the
+								downstream dataset.
+							</p>
+
+							<h3>AcC - AccentDB</h3>
+							<h4> AccentDB: A Database of Non-Native English Accents to Assist Neural Speech Recognition
+								(Ahamad et al., LREC 2020)
+							</h4>
+							[<a href="https://aclanthology.org/2020.lrec-1.659/">Link</a>]
+							<p>
+								The author used a CNN model for accent classification and augmented the CNN network with
+								attention mechanism. This model achieved 0.995 on the accuracy of the testing set of
+								AccentDB. The size of the CNN network is larger than <b>0.5M parameters</b>.
+							</p>
+
+							<h3>GID - VoxCeleb1</h3>
+							<h4> VoxCeleb Enrichment for Age and Gender Recognition (Hechmi et al., ASRU 2021)</h4>
+							[<a href="https://ieeexplore.ieee.org/document/9688085">Link</a>]
+							<p>
+								The author utilized i-vector and x-vector features to identify gender, achieving
+								F1-scores of 0.983 and 0.978 respectively using logistic regression and DNN classifier.
+								Both extractors were trained on MFCCs for speaker recognition using the VoxCeleb1
+								dataset and the ASVtorch toolkit.
+							</p>
+
+							<h3>VAD - Google Speech Commands Dataset V2 + Freesound</h3>
+							<h4>MarbleNet: Deep 1D Time-Channel Separable Convolutional Neural Network for Voice
+								Activity Detection (Jia et al., ICASSP 2021)</h4>
+							[<a href="https://ieeexplore.ieee.org/document/9414470">Link</a>]
+							<p>
+								NVIDIA MarbleNet is trained on a mixing of Google Speech Commands Dataset V2 (speech
+								data) and freesound (non-speech data) with data audmentation. The task is to classify
+								whether a given audio is speech or non-speech. NVIDIA MarbleNet is an end-to-end deep
+								residual network, having <b>88,000 parameters</b> in total, for VAD. Its accuracy on the
+								testing set is 0.998.
+							</p>
+
+							<h3>AuC - ESC-50</h3>
+							<h4>HTS-AT: A Hierarchical Token-Semantic Audio Transformer for Sound Classification and
+								Detection (Chen et al., ICASSP 2022)</h4>
+							[<a href="https://ieeexplore.ieee.org/document/9746312">Link</a>]
+							<p>
+								The author proposed HTS-AT, a hierarchical audio transformer with a token-semantic
+								module for audio classification. HTS-AT adopted a swin-transformer pretrained on
+								ImageNet as the token-semantic module. HTS-AT, having <b>31M parameters</b>, achieved
+								0.97 on
+								the accuracy of the testing set of ESC-50 dataset.
+							</p>
+
 						</section>
 
 						<section>
