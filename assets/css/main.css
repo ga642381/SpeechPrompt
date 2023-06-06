@@ -3097,3 +3097,16 @@ section > p {
 .paper-section {
   margin: 0;
 }
+
+.demo-transcript {
+  padding-left: 10%;
+  text-align: left;
+}
+
+.demo-audio {
+  vertical-align: unset;
+}
+
+.center {
+  text-align: center;
+}

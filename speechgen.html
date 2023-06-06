@@ -29,6 +29,7 @@
 						<a href="speech-prompt-v1.html">SpeechPrompt v1</a>
 					</li>
 					<li><a href="speech-prompt-v2.html">SpeechPrompt v2</a></li>
+					<li><a href="speechgen.html">SpeechGen</a></li>
 					<!-- <li><a href="no-sidebar.html">More</a></li> -->
 				</ul>
 			</nav>
@@ -44,7 +45,7 @@
 					<br />
 					<ul class="actions">
 						<li>
-							<!-- <a href="https://arxiv.org/abs/2203.16773" class="button">Paper</a> -->
+							<a href="https://arxiv.org/abs/2306.02207" class="button">Paper</a>
 						</li>
 						<li>
 							<!-- <a href="https://github.com/ga642381/SpeechPrompt" class="button">Code</a> -->
@@ -68,67 +69,484 @@
 							</div>
 							<br>
 							<div class="paper-author">
-								Work In Progress
-								<!-- <i>
-									Kai-Wei Chang&emsp;&emsp; Wei-Chen Tseng &emsp;&emsp;Shang-Wen Li
-									&emsp;&emsp;Hung-yi Lee
+								<i>
+									Haibin Wu*, Kai-Wei Chang*, Yuan-Kwei Wu*, Hung-yi Lee
 								</i>
 								<br><br>
 								<div style="font-weight:600">
-									National Taiwan University&emsp; &emsp;Amazon AI
+									National Taiwan University
 								</div>
 								<br>
 								<div style="font-size:18px">
 									Email: kaiwei.chang.tw@gmail.com
-								</div> -->
+								</div>
 							</div>
 						</section>
-						<!-- <a href="#" class="image featured">
-							<img src="SpeechPrompt-v1-assets/SpeechPrompt-v1-framework.png" alt="" />
-						</a> -->
+						<a href="#" class="image featured">
+							<img src="SpeechGen-assets/images/overall.png" alt="" />
+						</a>
 						<header>
-							<!-- <h2> SpeechGen</h2> -->
-							<!-- <p>Unlocking the Generative Power of -->
-							<!-- Speech Language Models with Prompts</p> -->
+							<h2> SpeechGen</h2>
+							<p>Unlocking the Generative Power of
+								Speech Language Models with Prompts</p>
 						</header>
 						<section style="line-height: 1.75em; font-size: 22px">
-							<!-- <p>
-								Recently, prompting in Natural Language Processing (NLP) has been found to be an
-								efficient technique to leverage pre-trained language models (LMs). Specifically, prompt
-								tuning optimizes a limited number of task-specific parameters with a fixed pre-trained
-								model; as a result, only a small set of parameters is needed to be stored for each task.
-								Prompt tuning improves computation and memory efficiency by leveraging the pre-trained
-								LM's prediction ability. Nevertheless, such a paradigm is little studied in the speech
-								community.
-								<br><br>
-								We report in this paper the first exploration of the prompt tuning paradigm for speech
-								processing tasks based on Generative Spoken Language Model (GSLM). Experiment results
-								show that the prompt tuning technique achieves competitive performance in speech
-								classification tasks with fewer trainable parameters than fine-tuning specialized
-								downstream models. We further study the technique in challenging sequence generation
-								tasks. Prompt tuning also demonstrates its potential, while the limitation and possible
-								research directions are discussed in this paper.
-							</p> -->
+							<p>
+								Large language models (LLMs) have gained considerable attention for Artificial
+								Intelligence Generated Content (AIGC), particularly with the emergence of ChatGPT.
+								However, the direct adaptation of continuous speech to LLMs that process discrete tokens
+								remains an unsolved challenge, hindering the application of LLMs for speech generation.
+								The advanced speech LMs are in the corner, as that speech signals encapsulate a wealth
+								of information, including speaker and emotion, beyond textual data alone. Prompt tuning
+								has demonstrated notable gains in parameter efficiency and competitive performance on
+								some speech classification tasks. However, the extent to which prompts can effectively
+								elicit generation tasks from speech LMs remains an open question. In this paper, we
+								present pioneering research that explores the application of prompt tuning to stimulate
+								speech LMs for various generation tasks, within a unified framework called SpeechGen,
+								with around 10M trainable parameters. The proposed unified framework holds great promise
+								for efficiency and effectiveness, particularly with the imminent arrival of advanced
+								speech LMs, which will significantly enhance the capabilities of the framework.
+							</p>
 						</section>
+
+						<header>
+							<h2>Demo</h2>
+						</header>
+						<section>
+							<h3> Speech Translation </h3>
+							<br>
+							<table>
+								<tr>
+									<th class="center"> Spansih </th>
+									<th class="center"> English (Ground Truth)</th>
+									<th class="center"> SpeechGen </th>
+								</tr>
+								<!-- 1 -->
+								<tr>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/st/es/common_voice_es_20000005.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source
+												src="SpeechGen-assets/audios/st/label/7618_common_voice_es_20000005.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">The origin of the name of the county is uncertain.
+										</div>
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source
+												src="SpeechGen-assets/audios/st/predict/7618_common_voice_es_20000005.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">Origin of the name of the county is uncertain.
+										</div>
+									</td>
+								</tr>
+								<!-- 2 -->
+								<tr>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/st/es/common_voice_es_19756716.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source
+												src="SpeechGen-assets/audios/st/label/8891_common_voice_es_19756716.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">Lastly, the play will devote a reflection to the
+											relationship between art and rebellion.
+										</div>
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source
+												src="SpeechGen-assets/audios/st/predict/8891_common_voice_es_19756716.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">And lastly the work will devote a reflection to the
+											relationship between art and rebellion.
+										</div>
+									</td>
+								</tr>
+								<!-- 3 -->
+								<tr>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/st/es/common_voice_es_19609220.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source
+												src="SpeechGen-assets/audios/st/label/7186_common_voice_es_19609220.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">It is around thirty kilometers away from the
+											regional capital city.
+										</div>
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source
+												src="SpeechGen-assets/audios/st/predict/7186_common_voice_es_19609220.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">Just one hundred forty kilometers from the regional
+											capital.
+										</div>
+									</td>
+								</tr>
+								<!-- 4-->
+								<tr>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/st/es/common_voice_es_19639550.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source
+												src="SpeechGen-assets/audios/st/label/7925_common_voice_es_19639550.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">They were easily recognized by the use of the armor
+											and the "Farina" helmet.
+										</div>
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source
+												src="SpeechGen-assets/audios/st/predict/7925_common_voice_es_19639550.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">They were frequently recognized for the use of
+											armor and the cascade.
+										</div>
+									</td>
+								</tr>
+								<!-- 5 -->
+								<tr>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/st/es/common_voice_es_19686802.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source
+												src="SpeechGen-assets/audios/st/label/2246_common_voice_es_19686802.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">They played in cover bands but decided to create
+											their own music.
+										</div>
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source
+												src="SpeechGen-assets/audios/st/predict/2246_common_voice_es_19686802.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">They played in mandates but they decided to create
+											their own music.
+										</div>
+									</td>
+								</tr>
+							</table>
+							<br>
+							<br>
+							<h3> Speech Continuation </h3>
+							<br>
+							<table>
+								<tr>
+									<th class="center"> Conditional Ratio </th>
+									<th class="center"> Seed Segment</th>
+									<th class="center"> SpeechGen </th>
+								</tr>
+								<!-- 1.1 -->
+								<tr>
+									<td class="demo-audio">
+										0.25
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/sc/cond_0.25/LJ040-0043.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">He assassinated the president
+										</div>
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/sc/predict/LJ040-0043.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">He assassinated the president and
+											gave mister johnson the last charge of improvement in his writing possible
+											three point eight nine.
+										</div>
+									</td>
+								</tr>
+								<!-- 1.2 -->
+								<tr>
+									<td class="demo-audio">
+										0.25
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/sc/cond_0.25/LJ030-0020.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">If anybody really wanted
+										</div>
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/sc/predict/LJ030-0020.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">If anybody really wanted to interfere once for some
+											time even if he got anything back to the other folk
+										</div>
+									</td>
+								</tr>
+								<!-- 1.3 -->
+								<tr>
+									<td class="demo-audio">
+										0.25
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/sc/cond_0.25/LJ029-0153.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">Under standard procedures
+										</div>
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/sc/predict/LJ029-0153.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">Under standard procedures the receivers have
+											inspected trade here by this time have recently developed they fully
+											recognize did their business.
+										</div>
+									</td>
+								</tr>
+								<!-- 2.1 -->
+								<tr>
+									<td class="demo-audio">
+										0.5
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/sc/cond_0.5/LJ037-0053.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">Who had been greatly upset by her experience was
+											able to view a
+										</div>
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/sc/predict/LJ037-0053.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">Who had been greatly upset by her experience was
+											able to view a longer time the great farce and receive good care of the
+											mutter.
+										</div>
+									</td>
+								</tr>
+								<!-- 2.2 -->
+								<tr>
+									<td class="demo-audio">
+										0.5
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/sc/cond_0.5/LJ009-0089.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">Childless parents widows and helpless orphans
+											broken and controlled
+										</div>
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/sc/predict/LJ009-0089.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">Childless parents widows and helpless orphans
+											broken and controlled by the master and sentence pursuit life apt to
+											paradise.
+										</div>
+									</td>
+								</tr>
+								<!-- 2.3 -->
+								<tr>
+									<td class="demo-audio">
+										0.5
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/sc/cond_0.5/LJ002-0060.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">But these king's witnesses were also put at times
+											into the press yard
+										</div>
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/sc/predict/LJ002-0060.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">But these king's witnesses were also put at times
+											into the press yard and charged with the service available on a second
+											charge to them.
+										</div>
+									</td>
+								</tr>
+								<!-- 3.1 -->
+								<tr>
+									<td class="demo-audio">
+										0.75
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/sc/cond_0.75/LJ033-0211.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">And the obvious bulk of the package which he
+											intended to bring to work
+										</div>
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/sc/predict/LJ033-0211.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">And the obvious bulk of the package which he
+											intended to bring to work was confirmed
+										</div>
+									</td>
+								</tr>
+								<!-- 3.2 -->
+								<tr>
+									<td class="demo-audio">
+										0.75
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/sc/cond_0.75/LJ028-0148.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">Then they set to building and began by bricking the
+											borders of the moat after which they proceeded
+										</div>
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/sc/predict/LJ028-0148.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">Then they set to building and began by bricking the
+											borders of the moat after which they proceeded to our own places
+										</div>
+									</td>
+								</tr>
+								<!-- 3.3 -->
+								<tr>
+									<td class="demo-audio">
+										0.75
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/sc/cond_0.75/LJ015-0227.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">Still watching and waiting for the first chance
+											they ceased when the clerks
+										</div>
+									</td>
+									<td class="demo-audio">
+										<audio controls>
+											<source src="SpeechGen-assets/audios/sc/predict/LJ015-0227.wav"
+												type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+										<div class="demo-transcript">Still watching and waiting for the first chance
+											they ceased when the clerks left the office
+										</div>
+									</td>
+								</tr>
+							</table>
+
+						</section>
+
+
 						<section>
 							<header>
-								<!-- <h2>Citation</h2> -->
+								<h2>Citation</h2>
 							</header>
 							<div id="bibtex-section" class="section">
 
-								<!-- <pre class="verbatim">
-@inproceedings{DBLP:conf/interspeech/ChangT0L22,
-	author    = {Kai{-}Wei Chang and
-	             Wei{-}Cheng Tseng and
-	             Shang{-}Wen Li and
-	             Hung{-}yi Lee},
-	title     = {An Exploration of Prompt Tuning on Generative Spoken Language Model
-		     for Speech Processing Tasks},
-	booktitle = {{INTERSPEECH}},
-	pages     = {5005--5009},
-	publisher = {{ISCA}},
-	year      = {2022}
-}							</pre> -->
+								<pre class="verbatim">
+@misc{wu2023speechgen,
+	title={SpeechGen: Unlocking the Generative Power of Speech Language Models with Prompts}, 
+	author={Haibin Wu and Kai-Wei Chang and Yuan-Kuei Wu and Hung-yi Lee},
+	year={2023},
+	eprint={2306.02207},
+	archivePrefix={arXiv},
+	primaryClass={eess.AS}
+}
+							</pre>
 							</div>
 						</section>
 					</article>
