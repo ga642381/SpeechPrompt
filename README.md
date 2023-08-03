@@ -39,11 +39,13 @@ For more information, please refer to our website: https://jsalt-2022-ssl.github
 
 ## Citation
 ```latex
-@article{chang2022exploration,
-  title={An Exploration of Prompt Tuning on Generative Spoken Language Model for Speech Processing Tasks},
-  author={Chang, Kai-Wei and Tseng, Wei-Cheng and Li, Shang-Wen and Lee, Hung-yi},
-  journal={arXiv preprint arXiv:2203.16773},
-  year={2022}
+@inproceedings{chang22e_interspeech,
+  author={Kai-Wei Chang and Wei-Cheng Tseng and Shang-Wen Li and Hung-yi Lee},
+  title={{An Exploration of Prompt Tuning on Generative Spoken Language Model for Speech Processing Tasks}},
+  year=2022,
+  booktitle={Proc. Interspeech 2022},
+  pages={5005--5009},
+  doi={10.21437/Interspeech.2022-10610}
 }
 ```
 ## Code Usage
